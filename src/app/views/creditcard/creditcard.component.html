@@ -1,0 +1,36 @@
+
+<div class="container">
+  <h1 class="center">Add Credit Card</h1>
+  <div class="form-container">
+    <form class="form" novalidate [formGroup]="creditCardForm">
+      <div class="form-group">
+        <label for="creditcardnumber">Credit Card</label>
+        <input type='text' id="creditcardnumber" formControlName="creditCardNumber" class="form-input">
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="cardHolder">Card Holder</label>
+        <input type="text" id="cardHolder" class="form-input" formControlName="cardHolder">
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="expirationDate">Expiration Date</label>
+        <input type="month" id="expirationDate" class="form-input" formControlName="expirationDate">
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="securityCode">Security Code</label>
+        <input type="text" maxlength="3" minlength="3" id="securityCode" class="form-input" formControlName="securityCode">
+      </div>
+
+      <div class="form-group mt-2">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" class="form-input" formControlName="amount">
+      </div>
+
+      <div class="center mt-1">
+        <input type="button" class="button" [disabled]="creditCardForm.invalid" (click)="submit()" value="Submit">
+      </div>
+    </form>
+  </div>
+</div>

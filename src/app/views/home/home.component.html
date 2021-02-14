@@ -1,0 +1,14 @@
+<div class="container">
+  <ul *ngIf="creditCard.creditCardNumber">
+    <li>Credit Card Number: {{ creditCard.creditCardNumber }}</li>
+    <li>Card Holder Name: {{ creditCard.cardHolder }}</li>
+    <li>Expiration Date: {{ creditCard.expirationDate }}</li>
+    <li>Security Code: {{ creditCard.securityCode }}</li>
+    <li>Amount: {{ creditCard.amount }}</li>
+  </ul>
+
+  <div *ngIf="!creditCard.creditCardNumber">
+    No credit card yet click add card button
+  </div>
+
+</div>
