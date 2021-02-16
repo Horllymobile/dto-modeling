@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -22,6 +23,7 @@ import { CreditcardComponent } from './views/creditcard/creditcard.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     StoreModule.forRoot({creditCard: creditCardReducer}, {}),
@@ -30,6 +32,7 @@ import { CreditcardComponent } from './views/creditcard/creditcard.component';
       logOnly: environment.production
     }),
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

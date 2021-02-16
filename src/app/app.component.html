@@ -1,9 +1,9 @@
-<header>
-  <div class="nav">
-    <button class="nav-item button" [routerLink] = "['/']">Home</button>
-    <button class="nav-item button" [routerLink] = "['/payment']">Payment</button>
-  </div>
-</header>
+<div class="container mt-3">
+  <nav class="nav justify-content-center">
+    <a class="nav-link active" [routerLink]="['/']">Home</a>
+    <a class="nav-link" [routerLink]="['/payment']" >Make Payment</a>
+  </nav>
+</div>
 <div class="container mt-2">
   <router-outlet></router-outlet>
 </div>

@@ -1,14 +1,20 @@
 <div class="container">
-  <ul *ngIf="creditCard.creditCardNumber">
-    <li>Credit Card Number: {{ creditCard.creditCardNumber }}</li>
-    <li>Card Holder Name: {{ creditCard.cardHolder }}</li>
-    <li>Expiration Date: {{ creditCard.expirationDate }}</li>
-    <li>Security Code: {{ creditCard.securityCode }}</li>
-    <li>Amount: {{ creditCard.amount }}</li>
-  </ul>
+  <div class="card" *ngIf="creditCard.creditCardNumber">
+    <div class="card-body">
+      <h4 class="card-title">Card Holder Name: {{ creditCard.cardHolder }}</h4>
+      <p class="card-text">Credit Card Number: {{ creditCard.creditCardNumber }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Expiration Date: {{ creditCard.expirationDate }}</li>
+      <li class="list-group-item">Security Code: {{ creditCard.securityCode }}</li>
+      <li class="list-group-item">Amount: {{ creditCard.amount }}</li>
+    </ul>
+  </div>
 
   <div *ngIf="!creditCard.creditCardNumber">
-    No credit card yet click add card button
+    <div class="alert alert-warning text-center mt-5">
+      No recent payment made yet
+    </div>
   </div>
 
 </div>
