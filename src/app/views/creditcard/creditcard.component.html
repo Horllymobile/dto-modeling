@@ -1,6 +1,6 @@
 
 <div class="container mt-4">
-  <h1 class="text-center">Add Credit Card</h1>
+  <h2 class="text-center">Make Payment</h2>
   <div class="row">
     <div class="col-lg-3"></div>
     <div class="col-lg-6">
@@ -21,7 +21,7 @@
           <small
           *ngIf="creditCardForm.get('creditCardNumber').dirty && creditCardForm.get('creditCardNumber').invalid"
           class="invalid-feedback">
-            Invalid credit card number
+            Invalid credit card number it should be 16 credit card number
           </small>
         </div>
 
@@ -29,11 +29,20 @@
           <label for="cardHolder">Card Holder</label>
           <input type="text" id="cardHolder" class="form-control"
           formControlName="cardHolder"
-          [class]="{'is-invalid': creditCardForm.get('cardHolder').touched && !creditCardForm.get('cardHolder').dirty}">
+          [class]="{
+            'is-invalid': creditCardForm.get('cardHolder').touched  && !creditCardForm.get('cardHolder').dirty ||
+            (creditCardForm.get('cardHolder').touched && creditCardForm.get('cardHolder').dirty)  && creditCardForm.get('cardHolder').invalid,
+            'is-valid': creditCardForm.get('cardHolder').valid
+          }">
           <small
-            *ngIf="creditCardForm.get('cardHolder').touched && creditCardForm.get('cardHolder').invalid"
+            *ngIf="creditCardForm.get('cardHolder').touched && !creditCardForm.get('cardHolder').dirty"
             class="invalid-feedback">
             Card holder name is required
+          </small>
+          <small
+            *ngIf="(creditCardForm.get('cardHolder').touched && creditCardForm.get('cardHolder').dirty)  && creditCardForm.get('cardHolder').invalid"
+            class="invalid-feedback">
+            Invalid card holder name
           </small>
         </div>
 
@@ -48,6 +57,7 @@
             class="invalid-feedback">
             Expiration date is required and must not be today's date
           </small>
+          <small class="text-danger" *ngIf="errorDate"> {{ errorDate }} </small>
         </div>
 
         <div class="form-group mt-2">
@@ -64,18 +74,19 @@
 
         <div class="form-group mt-2">
           <label for="amount">Amount</label>
-          <input type="number" id="amount"
+          <input type="text" id="amount"
           class="form-control" formControlName="amount"
           min="1"
-          [class]="{'is-invalid': creditCardForm.get('amount').touched && !creditCardForm.get('amount').dirty}">
+          [class]="{
+            'is-invalid': creditCardForm.get('amount').touched  && !creditCardForm.get('amount').dirty ||
+            creditCardForm.get('amount').touched && creditCardForm.get('amount').invalid
+          }">
           <small
-          *ngIf="creditCardForm.get('amount').touched &&
-          !creditCardForm.get('amount').dirty" class="invalid-feedback">
+          *ngIf="creditCardForm.get('amount').touched && !creditCardForm.get('amount').dirty" class="invalid-feedback">
             Amount is required
           </small>
-          <small
-          *ngIf="creditCardForm.get('amount').invalid" class="invalid-feedback">
-            Amount is invalid it should be greater than 0
+          <small *ngIf="creditCardForm.get('amount').touched && creditCardForm.get('amount').invalid" class="invalid-feedback">
+            Amount is invalid it should be more than 0
           </small>
         </div>
 

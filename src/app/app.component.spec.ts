@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'dto-modeling'`, () => {
+  it(`should have as title 'Payment App'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('dto-modeling');
+    expect(app.title).toEqual('Payment App');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('dto-modeling app is running!');
+    expect(compiled.querySelector('h1').textContent).toContain('Payment App');
   });
 });

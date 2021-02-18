@@ -1,14 +1,29 @@
-<div class="container">
-  <div class="card" *ngIf="creditCard.creditCardNumber">
-    <div class="card-body">
-      <h4 class="card-title">Card Holder Name: {{ creditCard.cardHolder }}</h4>
-      <p class="card-text">Credit Card Number: {{ creditCard.creditCardNumber }}</p>
+<div class="container mt-5">
+  <div class="row" *ngIf="creditCard.creditCardNumber">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <table class="table table-striped table-inverse table-responsive">
+        <thead class="thead-inverse">
+          <tr>
+            <th>Credit Card Number</th>
+            <th>Card Holder</th>
+            <th>Expiration Date</th>
+            <th>Security Code <small>(Optional)</small></th>
+            <th>Amount</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td scope="row">{{ creditCard.creditCardNumber }}</td>
+              <td>{{ creditCard.cardHolder }}</td>
+              <td> {{ creditCard.expirationDate }} </td>
+              <td>{{ creditCard.securityCode }}</td>
+              <td>{{ creditCard.amount }}</td>
+            </tr>
+          </tbody>
+      </table>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Expiration Date: {{ creditCard.expirationDate }}</li>
-      <li class="list-group-item">Security Code: {{ creditCard.securityCode }}</li>
-      <li class="list-group-item">Amount: {{ creditCard.amount }}</li>
-    </ul>
+    <div class="col-2"></div>
   </div>
 
   <div *ngIf="!creditCard.creditCardNumber">
